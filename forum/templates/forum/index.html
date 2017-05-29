@@ -1,4 +1,6 @@
-<form action="" method="post">
+{% extends 'base.html' %}
+{% block form %}
+<form action="/forum/view/{{ form.pk }}" method="post">
     {% csrf_token %}
     <label for="question">Question:</label><br>
     {{ form.question }} <br><br>
@@ -6,3 +8,4 @@
     {{ form.tag }} <br><br>
     <input type="submit" name="submit">
 </form>
+{% endblock %}

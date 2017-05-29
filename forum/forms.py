@@ -1,5 +1,6 @@
 from django import forms
-
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
 # Create your models here.
 
 class QuestionPostForm(forms.Form):
@@ -10,3 +11,4 @@ class QuestionPostForm(forms.Form):
 class AnswerPostForm(forms.Form):
     answer_text = forms.CharField(label='Answer Text', max_length=1000)
     answer_rate = forms.IntegerField(label='Rate')
+
