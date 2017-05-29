@@ -1,0 +1,8 @@
+<form action="" method="post">
+    {% csrf_token %}
+    <label for="question">Question:</label><br>
+    {{ form.question }} <br><br>
+    <label for="tag">Tags:</label><br>
+    {{ form.tag }} <br><br>
+    <input type="submit" name="submit">
+</form>

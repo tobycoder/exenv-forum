@@ -1,0 +1,14 @@
+<table>
+    <tr>
+        <th>Question:</th>
+        <th>Tags:</th>
+        <th>Date posted:</th>
+    </tr>
+    {% for item in query %}
+    <tr>
+        <td>{{ item.question }}</td>
+        <td>{{ item.tag }}</td>
+        <td>{{ item.created }}</td>
+    </tr>
+    {% endfor %}
+</table>
