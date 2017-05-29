@@ -42,3 +42,7 @@ def signup(request):
     else:
         form = SignUpForm()
     return render(request, 'signup.html', {'form': form})
+
+def QuestionOversight(request):
+    query = QuestionPost.objects.all()
+    return render(request, 'forum/questions.html', {'query': query})

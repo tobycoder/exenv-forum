@@ -1,16 +1,14 @@
 {% extends 'base.html' %}
-{% block view %}
+{% block AllQuestions %}
 <table>
     <tr>
-        <th>Question:</th>
-        <th>Tags:</th>
-        <th>Date posted:</th>
+        <th>Questions</th>
+        <th>Tags</th>
     </tr>
     {% for item in query %}
     <tr>
-        <td>{{ item.question }}</td>
+        <td><a href="/forum/view/{{ item.id }}/"> {{ item.question }} </a></td>
         <td>{{ item.tag }}</td>
-        <td>{{ item.created }}</td>
     </tr>
     {% endfor %}
 </table>

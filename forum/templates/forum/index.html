@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends "forum/base.html" %}
 {% block form %}
 <form action="/forum/view/{{ form.pk }}" method="post">
     {% csrf_token %}
@@ -6,6 +6,6 @@
     {{ form.question }} <br><br>
     <label for="tag">Tags:</label><br>
     {{ form.tag }} <br><br>
-    <input type="submit" name="submit">
+    <input class="btn btn-primary" type="submit" name="submit">
 </form>
 {% endblock %}
