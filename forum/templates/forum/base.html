@@ -1,18 +1,25 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">    <link href="{% static 'css/heroic-features.css' %}" rel="stylesheet">
     <meta charset="UTF-8">
     <title>Welcome to Exenv</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            }
+    </style>
 </head>
     <nav class="navbar navbar-default">
       <div class="container-fluid">
         <div class="navbar-header">
-          <a class="navbar-brand" href="#">Exenv</a>
+          <a class="navbar-brand" href="/forum">Exenv</a>
         </div>
         <ul class="nav navbar-nav">
           <li class="active"><a href="/forum/">Home</a></li>
-          {% block nav-forum %}<li><a href="/forum/">Ask</a></li>{% endblock %}
+          {% block nav-forum %}<li><a href="/forum/ask">Ask</a></li>{% endblock %}
           {% block nav-answer%}<li><a href="/forum/all">Answer</a></li>{% endblock %}
           <li><a href="#">Login</a></li>
         </ul>

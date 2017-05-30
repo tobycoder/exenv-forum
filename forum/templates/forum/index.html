@@ -1,11 +1,39 @@
 {% extends "forum/base.html" %}
 {% block form %}
-<form action="" method="post">
-    {% csrf_token %}
-    <label for="question">Question:</label><br>
-    {{ form.question }} <br><br>
-    <label for="tag">Tags:</label><br>
-    {{ form.tag }} <br><br>
-    <input class="btn btn-primary" type="submit" name="submit">
-</form>
+<style>
+    .form-wrap {
+        text-align: left;
+        width: 40%;
+        float: left;
+        padding: 50px;
+        }
+     input {
+        width: 100%;
+        }
+     textarea {
+        width: 100%;
+        }
+      #id_title {
+        height: 50px;
+        font-size: 40px;
+        border: none;
+        border-bottom: solid 1px black;
+        }
+</style>
+<div class="jumbotron" style="text-align: center;">
+    <h1>Ask your question</h1>
+</div>
+    <div class="form-wrap">
+        <form action="" method="post" class="form form-horizontal">
+            {% csrf_token %}
+            <label for="title">Title:</label><br>
+            {{ form.title }}<br><br>
+            <label for="question">Question:</label><br>
+            {{ form.question }} <br><br>
+            <label for="tag">Tags:</label><br>
+            {{ form.tag }} <br><br>
+            <input class="btn btn-primary" type="submit" name="submit">
+        </form>
+    </div>
 {% endblock %}
+    <div class="recent-posts"> {% include 'forum/recent_post.html' %} </div>

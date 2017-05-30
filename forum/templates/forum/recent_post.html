@@ -1,0 +1,12 @@
+{% block content %}
+<table>
+    <tr>
+        <th>Latest Posts:</th>
+    </tr>
+    {% for item in last_ten_in_ascending_order %}
+    <tr>
+        <td><a href="/forum/view/{{ item.id }}/" >{{ item.title }}</a></td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

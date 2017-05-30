@@ -1,13 +1,13 @@
 {% extends 'forum/base.html' %}
 {% block AllQuestions %}
-<table>
+<table class="table table-hover">
     <tr>
         <th>Questions</th>
         <th>Tags</th>
     </tr>
     {% for item in query %}
     <tr>
-        <td><a href="/forum/view/{{ item.id }}/"> {{ item.question }} </a></td>
+        <td><a href="/forum/view/{{ item.id }}/"> {{ item.title }} </a></td>
         <td>{{ item.tag }}</td>
     </tr>
     {% endfor %}

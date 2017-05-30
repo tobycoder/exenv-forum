@@ -20,7 +20,9 @@ from . import views
 admin.autodiscover()
 app_name = 'forum'
 urlpatterns = [
-    url(r'^$', views.get_question, name='get_question'),
+    url(r'^$', views.get_index_page, name='get_index_page'),
+    url(r'^ask/$', views.get_question, name='get_question'),
+    url(r'^recent/$', views.recent_questions, name='recent_questions'),
     url(r'^all/$', views.QuestionOversight, name='QuestionOversight'),
     url(r'^view/(?P<question_url_id>[0-9]+)/$', views.get_the_text, name='get_the_text'),
     url(r'^view/(?P<question_url_id>[0-9]+)/comment/$', views.add_comment_to_post, name='add_comment_to_post'),

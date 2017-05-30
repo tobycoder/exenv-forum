@@ -1,16 +1,28 @@
 {% extends 'forum/base.html' %}
 {% block view %}
+<style>
+    .text-actually {
+        font-size: 30px;
+        padding-left: 20px;
+        }
+</style>
 <table>
+        {% for item in query %}
     <tr>
-        <th>Question:</th>
-        <th>Tags:</th>
-        <th>Date posted:</th>
+        <td>Date: </td>
+        <td class="text-actually">{{ item.created }}</td>
     </tr>
-    {% for item in query %}
     <tr>
-        <td>{{ item.question }}</td>
-        <td>{{ item.tag }}</td>
-        <td>{{ item.created }}</td>
+        <td>Title: </td>
+        <th class="text-actually">{{ item.title }}</th>
+    </tr>
+    <tr>
+        <td>Question:</td>
+        <td class="text-actually">{{ item.question }}</td>
+    </tr>
+    <tr>
+        <td>Tags: </td>
+        <td class="text-actually">{{ item.tag }}</td>
     </tr>
 </table>
 <br>

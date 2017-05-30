@@ -2,7 +2,7 @@
 
 {% block formcomment %}
 <h1>New comment on post no. {{ request_id }}</h1>
-    <form method="POST" class="post-form" action="forum/view/">
+    <form method="POST" class="post-form">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit" class="save btn btn-default">Send</button>
