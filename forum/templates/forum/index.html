@@ -1,6 +1,6 @@
 {% extends "forum/base.html" %}
 {% block form %}
-<form action="/forum/view/{{ form.pk }}" method="post">
+<form action="" method="post">
     {% csrf_token %}
     <label for="question">Question:</label><br>
     {{ form.question }} <br><br>

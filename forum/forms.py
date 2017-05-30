@@ -1,5 +1,5 @@
 from django import forms
-from .models import AnswerPost
+from .models import Comment
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 #Create your models here.
@@ -9,9 +9,9 @@ class QuestionPostForm(forms.Form):
     tag = forms.CharField(label='Tags', max_length=200)
 
 
-class AnswerPostForm(forms.ModelForm):
+class CommentForm(forms.ModelForm):
 
     class Meta:
-        model = AnswerPost
+        model = Comment
         fields = ('author', 'text',)
 

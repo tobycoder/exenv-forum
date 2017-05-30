@@ -20,6 +20,7 @@ admin.autodiscover()
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^forum/', include('forum.urls')),
+    url(r'^forum/', include('forum.urls', namespace='forum')),
     url(r'^core/', include('core.urls')),
+    url(r'^accounts/', include('django.contrib.auth.urls')),
 ]

@@ -12,14 +12,17 @@
         <td>{{ item.tag }}</td>
         <td>{{ item.created }}</td>
     </tr>
-    {% endfor %}
 </table>
 <br>
+<a class="btn btn-default" href="{% url 'forum:add_comment_to_post' question_url_id=item.id %}">Add comment</a>
+    {% endfor %}
+<hr>
+        {% for comment in querytwo %}
+    <div class="comment">
+        <div class="date">{{ comment.created_date }}</div>
+        <strong>{{ comment.author }}</strong>
+        <p>{{ comment.text }}</p>
+    </div>
+        {% endfor %}
 
-<a class="btn btn-default" href="{% url 'add_comment_to_post' question_url_id=question.id %}">Add comment</a>
-    <h1>New comment</h1>
-    <form method="POST" class="post-form">{% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="save btn btn-default">Send</button>
-    </form>
 {% endblock %}
