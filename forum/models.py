@@ -8,6 +8,7 @@ class QuestionPost(models.Model):
     question = models.TextField()
     title = models.CharField(max_length=500, null=True, blank=True)
     tag = models.CharField(max_length=200)
+    file = models.FileField(upload_to='media/pictures/', max_length=100, default=None)
     created = models.DateTimeField(auto_now_add=True)
 
 class Comment(models.Model):

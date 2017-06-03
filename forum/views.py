@@ -3,6 +3,7 @@ from django.http import HttpResponseRedirect
 from .forms import QuestionPostForm, CommentForm
 from .models import QuestionPost, Comment
 from django.utils import timezone
+from django.core.files.base import ContentFile
 # Create your views here.
 
 def get_index_page(request):
@@ -10,13 +11,14 @@ def get_index_page(request):
 
 def get_question(request):
     if request.method == 'POST':
-        form = QuestionPostForm(request.POST)
+        form = QuestionPostForm(request.POST, request.FILES)
         if form.is_valid():
             obj = QuestionPost()
             obj.title = form.cleaned_data['title']
             obj.question = form.cleaned_data['question']
             obj.tag = form.cleaned_data['tag']
             obj.created = timezone.now()
+            obj.file = form.cleaned_data['file']
             obj.save()
             request_id = obj.id
             url = reverse('forum:get_the_text', kwargs={'question_url_id': request_id})
@@ -28,8 +30,9 @@ def get_question(request):
 
 def get_the_text(request, question_url_id):
     query = QuestionPost.objects.filter(pk=question_url_id).values()
+    ifvalue = QuestionPost.objects.filter(pk=question_url_id, file='None').exists()
     querytwo = Comment.objects.filter(post_id=question_url_id)
-    return render(request, 'forum/thanks.html', {'query': query, 'querytwo': querytwo})
+    return render(request, 'forum/thanks.html', {'query': query, 'querytwo': querytwo, 'ifvalue': ifvalue})
 
 def QuestionOversight(request):
     query = QuestionPost.objects.all()

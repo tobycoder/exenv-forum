@@ -8,7 +8,7 @@ class QuestionPostForm(forms.ModelForm):
 
     class Meta:
         model = QuestionPost
-        fields = ('title','question', 'tag',)
+        fields = ('title','question', 'tag','file')
 
 
 class CommentForm(forms.ModelForm):
