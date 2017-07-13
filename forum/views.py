@@ -13,14 +13,9 @@ def get_question(request):
     if request.method == 'POST':
         form = QuestionPostForm(request.POST, request.FILES)
         if form.is_valid():
-            obj = QuestionPost()
-            obj.title = form.cleaned_data['title']
-            obj.question = form.cleaned_data['question']
-            obj.tag = form.cleaned_data['tag']
-            obj.created = timezone.now()
-            obj.file = form.cleaned_data['file']
-            obj.save()
-            request_id = obj.id
+            form = form.save()
+            request_id = form.id
+            form.save()
             url = reverse('forum:get_the_text', kwargs={'question_url_id': request_id})
             return HttpResponseRedirect(url)
 

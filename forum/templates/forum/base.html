@@ -12,6 +12,7 @@
             }
     </style>
 </head>
+<header>{% if request.session.username %}<span class="greeting" style="display: block; background: black; text-align: left; color: white; font-size: 20px;">Welkom {{ request.session.username }}</span>{% endif %}</header>
     <nav class="navbar navbar-default">
       <div class="container-fluid">
         <div class="navbar-header">
@@ -21,7 +22,11 @@
           <li class="active"><a href="/forum/">Home</a></li>
           {% block nav-forum %}<li><a href="/forum/ask">Ask</a></li>{% endblock %}
           {% block nav-answer%}<li><a href="/forum/all">Answer</a></li>{% endblock %}
-          <li><a href="#">Login</a></li>
+          {% if request.session.username %}
+            <li><a href="/forum/logout">Logout</a></li>
+            {% else %}
+            <li><a href="/forum/login">Login</a></li>
+            {% endif %}
         </ul>
       </div>
     </nav>
@@ -34,4 +39,6 @@
 {% block content %}
 {% endblock %}
 {% block formcomment %}
+{% endblock %}
+{% block loginview %}
 {% endblock %}

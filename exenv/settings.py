@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'forum.apps.ForumConfig',
     'core.apps.CoreConfig',
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [
@@ -68,6 +69,8 @@ TEMPLATES = [
         },
     },
 ]
+
+TEMPLATE_DEBUG = True
 
 WSGI_APPLICATION = 'exenv.wsgi.application'
 
@@ -119,3 +122,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+MEDIA_URL = '/static/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'forum/static/media')
+
+# Emailsettings to email customers
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'florisblog.com@gmail.com'
+EMAIL_HOST_PASSWORD = 'welcometoby'
+EMAIL_PORT = 587

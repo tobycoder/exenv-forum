@@ -8,7 +8,7 @@ class QuestionPost(models.Model):
     question = models.TextField()
     title = models.CharField(max_length=500, null=True, blank=True)
     tag = models.CharField(max_length=200)
-    file = models.FileField(upload_to='media/pictures/', max_length=100, default=None)
+    file = models.ImageField()
     created = models.DateTimeField(auto_now_add=True)
 
 class Comment(models.Model):
@@ -20,3 +20,13 @@ class Comment(models.Model):
     def __str__(self):
         return self.text
 
+class Registration(models.Model):
+    first_name = models.CharField(max_length=200, null=True)
+    last_name = models.CharField(max_length=200, null=True)
+    email = models.CharField(max_length=200, null=True)
+    username = models.CharField(max_length=200, null=True)
+    password = models.CharField(max_length=200, null=True)
+    activate = models.CharField(max_length=200, null=True)
+    bday = models.DateField(auto_now_add=False, null=True)
+    created_at = models.DateField(auto_now_add=True)
+    activated = models.BooleanField(null=False, default=0)

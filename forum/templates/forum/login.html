@@ -1,0 +1,22 @@
+{% extends 'forum/base.html' %}
+{% block loginview %}
+{% load widget_tweaks %}
+<body>
+<div class="container">
+    <header class="jumbotron hero-spacer">
+        <form class="form-horizontal" action="" method="post">
+            {% csrf_token %}
+            {% for x in form %}
+            <div class="form-group">
+                <label class="control-label col-sm-2">{{ x.label }}</label>
+                <div class="col-sm-10">
+                    {% render_field x class="form-control" %}
+                </div>
+            </div>
+            {% endfor %}
+            <button class="btn btn-primary btn-block" type="submit">Login</button>
+        </form>
+    </header>
+</div>
+</body>
+{% endblock %}

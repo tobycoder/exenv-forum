@@ -1,0 +1,26 @@
+{% extends 'forum/base.html' %}
+{% load staticfiles %}
+{% block content %}
+<!-- Page Content -->
+    <div class="container">
+
+        <!-- Jumbotron Header -->
+        <header class="jumbotron hero-spacer">
+            <h1>Your journey starts here.</h1>
+            <p>You succesfully activated your account. Join us on the graffitiburners journey.</p>
+            <a href="/forum/all" class="btn btn-primary">Answer some questions</a>
+            <a href="/forum/ask" class="btn btn-primary">Ask a question</a>
+            </p>
+        </header>
+
+    </div>
+<!-- jQuery -->
+    <script src="{% static 'js/jquery.js' %}"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+</body>
+
+</html>
+{% endblock %}
